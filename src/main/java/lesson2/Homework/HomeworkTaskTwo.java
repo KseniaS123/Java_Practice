@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 public class HomeworkTaskTwo {
     static StringBuilder sb = new StringBuilder("TEST");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         stringTest();
         writeFile();
     }
@@ -25,21 +25,15 @@ public class HomeworkTaskTwo {
         }
         return sb;
     }
+    public static void writeFile() throws IOException {
+        Path path = Paths.get("src/main/test.txt");
+        String contents = sb.toString();
 
-    public static void writeFile() {
-        PrintWriter pw = new Print
+        try {
+            Files.writeString(path, contents, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-//    public static void writeFile() throws IOException {
-//        Path path = Paths.get("D:/Гикбрейнс/file.txt");
-//        String contents = sb.toString();
-//        Files.writeString(path, contents, StandardCharsets.UTF_8);
-//
-//        try {
-//
-//        } catch (IOException ex) {
-//            // Handle exception
-//        }
-//    }
 }
 
