@@ -12,13 +12,14 @@ import java.util.Arrays;
 
 public class HomeworkTaskThree {
     public static void main(String[] args) {
+
         fileExtensionFromDirectory("D:\\Гикбрейнс");
     }
 
-    private static void fileExtensionFromDirectory(String pathDir) {
+    private static String fileExtensionFromDirectory(String pathDir) {
         File file = new File(pathDir);
         if (!file.isDirectory()) {
-            return;
+            return pathDir;
         }
 
         String[] dirListNames = file.list();
@@ -29,5 +30,8 @@ public class HomeworkTaskThree {
             sb.append(fileName).append("\n");
         }
         System.out.println(sb);
+
+//            int index = sb.indexOf(".");
+        return pathDir;
     }
 }
